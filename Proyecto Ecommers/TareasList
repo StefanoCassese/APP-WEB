@@ -1,5 +1,0 @@
-Esta mal visto colocarl funciones en el onclick de un boton
-Si bien se puede es mucho mejor crear una funcion que
-espere al evento click  del boton y ejecute un codigo 
-que sea la funcion del mismo boton.
-
