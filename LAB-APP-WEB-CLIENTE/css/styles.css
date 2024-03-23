@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px; /* Define el ancho máximo del contenedor */
+    margin: 0 auto; /* Margen automático para centrar el contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    width: 30%; /* Define el ancho de cada producto */
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc; /* Borde opcional */
+    padding: 10px; /* Espaciado interno opcional */
+}
+
+.product__img img {
+    max-width: 100%; /* Para asegurarse de que la imagen no se salga del contenedor */
+    height: 330px;
+}
+
+.product__button {
+    margin-top: 10px; /* Espacio entre el texto y el botón */
+}
+
+
