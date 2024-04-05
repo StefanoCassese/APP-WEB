@@ -6,10 +6,10 @@ const input = document.getElementById('barra-Busqueda');
 
 let productosList = [];
 
+// Una vez se ha obtenido los productos de la api ejecutara los eventos posteriores, esto a fan de evitar algunos errores
 getApiProductList().then(products => {
     productosList = products;
     
-    console.table(productosList)
     // evento que espera a que el usuario escriba para luego filtrarlo en mostrarProductoBuscado()
     input.addEventListener('input', function(event) {
         const textoIngresado = event.target.value;
