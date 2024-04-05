@@ -26,7 +26,7 @@ function escribirCodigoHTMLCategorias(Categorias) {
 
     Categorias.forEach(category => {
 
-        imgCategory = getImagenesCategorias(category)   // Trae las imagenes para cada categoria de productos alamacenadas en el proyecto
+        imgCategory = getImagene(category)   // Trae las imagenes para cada categoria de productos alamacenadas en el proyecto
 
         nombreCategoria = traducirNombresCategoria(category)  // Traduce las categorias del ingles al español para evitar errores de apertura de string y una mejor accesivilidad
 
@@ -114,7 +114,7 @@ function escribirCodigoHTMLProductos(products, filtro) {
 }
 
 // Trae las imagenes para cada categoria de productos alamacenadas en el proyecto
-function getImagenesCategorias(nombreCategoria) {
+export function getImagene(nombreCategoria) {
     let imgURL;
 
     switch(nombreCategoria) {
@@ -129,6 +129,9 @@ function getImagenesCategorias(nombreCategoria) {
             break;
         case "electronics":
             imgURL = "IMG/IMG-CATEGORIAS/Tecnologia categoria.jpg";
+            break;
+        case "ProductoNoEncontrado":
+            imgURL = "IMG/Imagen producto no encontrado.png"
             break;
         default:
             console.warn("The format of the string that was given isn't a recognized category");
@@ -214,4 +217,5 @@ function cambiarCategoriaEtiqueta(categoria) {
 
 // Inicializa el texto de la etiqueta en "Todos los productos"             
 cambiarCategoriaEtiqueta("Todos los productos");  
+
 
