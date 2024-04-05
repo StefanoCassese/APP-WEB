@@ -20,12 +20,12 @@ export function getApiProductList() {
 let cachedCategoryProductList = [];
 
 export function getApiCategoryProductsList() {
-    // Si la lista de productos está en la caché, devuelve la lista de productos de la caché
+    // Si la lista de categorias está en la caché, devuelve la lista de categorias de la caché
     if (cachedCategoryProductList.length > 0) {
         return Promise.resolve(cachedCategoryProductList);
     }
     
-    // Si la lista de productos no está en la caché, se hace una nueva solicitud a la API
+    // Si la lista de categorias no está en la caché, se hace una nueva solicitud a la API
     return getApiCategoryProducts().then(categoryList => {
         // Almacena la lista de productos en caché
         cachedCategoryProductList = categoryList;
