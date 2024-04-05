@@ -1,15 +1,15 @@
 import { getApiProductList } from "./api.js"
-import { traducirNombresCategoria } from "../index.js";
+import { traducirNombresCategoria, getImagene } from "../index.js";
 
 const boton = document.getElementById('btn-Buscador');
 const input = document.getElementById('barra-Busqueda');
 
 let productosList = [];
 
-// Una vez se ha obtenido los productos de la api ejecutara los eventos posteriores, esto a fan de evitar algunos errores
 getApiProductList().then(products => {
     productosList = products;
     
+    console.table(productosList)
     // evento que espera a que el usuario escriba para luego filtrarlo en mostrarProductoBuscado()
     input.addEventListener('input', function(event) {
         const textoIngresado = event.target.value;
@@ -36,32 +36,46 @@ function mostrarProductoBuscado(textoBuscado) {
     const largoMaxNombreProducto = 36; // la cantidad maxima de caracteres que puede tener el nombre del producto buscado
 
     if (textoBuscado.length === 0) {
-        productsContainer.innerHTML = ""; 
-        return; 
+        ocultarBarraBusquedaYOverlay()
+        return;
     } 
-
+    
     const productosFiltrados = productosList.filter(producto =>
-         producto.title.toUpperCase().includes(textoBuscado.toUpperCase()));
+         producto.title.toUpperCase().includes(textoBuscado.toUpperCase()));    
+
+    let productoHTML;
     
-    const productosHTML = productosFiltrados.map(producto => {
-        const nombreCategoriaTraducida = traducirNombresCategoria(producto.category);
-        return `
+    if (productosFiltrados.length === 0)
+    {
+        const imgProductoNoEncontrado = getImagene("ProductoNoEncontrado")
+        productoHTML = `
             <article>
-                <button id="btn-Resultado-Producto-Buscado" class="btn-Resultado-Producto-Buscado">
-                    <div class="producto-Buscado">
-                        <img src="${producto.image}" alt="${producto.title}">
-                        <div class="contenedor-Texto-Producto-Buscado">
-                            <p class="nombre-Producto-Buscado">${truncarTexto(producto.title, largoMaxNombreProducto)}</p>
-                            <p class="categoria-Producto-Buscado">${nombreCategoriaTraducida}</p>
-                            <p class="precio-Producto-Buscado">$ ${producto.price}</p>
-                        </div>                
-                    </div>
-                </button>           
-            </article>
-        `;
-    }).join('');
+                <div class="producto-Buscado-NoEncontrado">
+                    <img src="${imgProductoNoEncontrado}" alt="Producto no encontrado">
+                </div>
+           </article>
+    `; 
+    } else {
+        productoHTML = productosFiltrados.map(producto => {
+            const nombreCategoriaTraducida = traducirNombresCategoria(producto.category);
+            return `
+                <article>
+                    <button id="btn-Resultado-Producto-Buscado ${producto.id}" class="btn-Resultado-Producto-Buscado">
+                        <div class="producto-Buscado">
+                            <img src="${producto.image}" alt="${producto.title}">
+                            <div class="contenedor-Texto-Producto-Buscado">
+                                <p class="nombre-Producto-Buscado">${truncarTexto(producto.title, largoMaxNombreProducto)}</p>
+                                <p class="categoria-Producto-Buscado">${nombreCategoriaTraducida}</p>
+                                <p class="precio-Producto-Buscado">$ ${producto.price}</p>
+                            </div>                
+                        </div>
+                    </button>           
+                </article>
+            `;
+        }).join('');
+    }
     
-    productsContainer.innerHTML = productosHTML;
+    productsContainer.innerHTML = productoHTML;
 }
 
 // Animacion que muestra la barra de busqueda poniendo el foco en el inpuct text del buscador
@@ -82,13 +96,13 @@ function mostrarOverlay() {
 }
 
 // Evento de llamada al evento ocultar cuando se deja de hacer el foco en el buscador
-input.addEventListener('blur', ocultarBarraBusqueda); 
+input.addEventListener('blur', ocultarBarraBusquedaYOverlay); 
 
 // Animacion que oculta la barra de busqueda al no hacer foco en la misma por 5 segundos
-function ocultarBarraBusqueda() {
+function ocultarBarraBusquedaYOverlay() {
+    ocultarOverlay() // Se oculta el overlay segun se cierre la barra de busqueda
     setTimeout(() => {        
-        if (document.activeElement !== input) {
-            ocultarOverlay() // Se oculta el overlay segun se cierre la barra de busqueda
+        if (document.activeElement !== input) {          
             boton.classList.remove('btn-Buscador-inpuctText-Dezplegado')
             boton.classList.add('btn-Buscador')
             input.classList.remove('barra-Busqueda')
@@ -111,6 +125,9 @@ function truncarTexto(texto, limite) {
         return texto;
     }
 }
+
+
+
 
 
 
