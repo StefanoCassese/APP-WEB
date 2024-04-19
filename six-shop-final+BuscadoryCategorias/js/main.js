@@ -13,6 +13,20 @@ getProducts(data => {
     writeProductHTML(data)
 });
 
+function abrirMenu() {
+    const menu = document.querySelector(".menu-links")
+    const icon = document.querySelector(".hamburger-icon")
+    menu.classList.toggle("open")
+    icon.classList.toggle("open")
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const icon = document.querySelector(".hamburger-icon");
+    if (icon) {
+        icon.addEventListener("click", abrirMenu);
+    }
+});
+
 function writeProductHTML(data) {
     const main = document.querySelector("main");
 
@@ -50,38 +64,6 @@ async function getGlobalProductsList() {
     let productList = await solveGetProductsPromise()
     return productList;
 }
-
-const navContenedor = document.querySelector("#hamburger-nav")
-
-function returnMenu() {
-    navContenedor.innerHTML = `
-    
-    <div class="logo"><p>Six Shop</p></div>
-        <div id="searchMediumWidth" class="search">
-            <input id="search-input" type="text" placeholder="Buscar" class="search-input">
-        </div>
-    <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="abrirMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="menu-links">
-            <li><a href="#carrito" onclick="abrirMenu()">Carrito</a></li>
-            <li><a href="#productos" onclick="abrirMenu()">Productos</a></li>
-            <li><a href="#contacto" onclick="abrirMenu()">Contacto</a></li>
-        </div>
-    </div>`
-}
-
-function abrirMenu() {
-    const menu = document.querySelector(".menu-links")
-    const icon = document.querySelector(".hamburger-icon")
-    menu.classList.toggle("open")
-    icon.classList.toggle("open")
-}
-
-returnMenu()
 
 /* Logica buscador */
 
