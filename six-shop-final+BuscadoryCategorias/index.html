@@ -33,7 +33,26 @@
         </div>
     </nav>
 
-    <nav id="hamburger-nav"></nav>
+        <nav id="hamburger-nav">
+        <div class="logo">
+            <p>Six Shop</p>
+        </div>
+        <div id="searchMediumWidth" class="search">
+            <input id="search-input" type="text" placeholder="Buscar" class="search-input">
+        </div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="abrirMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="#carrito" onclick="abrirMenu()">Carrito</a></li>
+                <li><a href="#productos" onclick="abrirMenu()">Productos</a></li>
+                <li><a href="#contacto" onclick="abrirMenu()">Contacto</a></li>
+            </div>
+        </div>
+    </nav>
 
     <div class="hero">
         <div class="hero__container">
@@ -48,7 +67,7 @@
             <i class="fa-regular fa-circle-xmark"></i>
         </button>
 
-        <h2 class="subtitle" id="subtitle">Productos</h2>   
+        <h2 class="subtitle" id="productos">Productos</h2>   
     </aside>
 
     <div id="search-under-title" class="search-under-title">
