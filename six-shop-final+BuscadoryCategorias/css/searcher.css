@@ -1,0 +1,93 @@
+/*---------------Estilos Generales Etiquetas----------------*/
+
+:root {
+  --clr-light-gray-border: #d4d4d4;
+  --clr-black-shadow-border-li: rgba(0, 0, 0, 0.6);
+}
+
+.searched-suggestion-text p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #search nav {
+    padding: 0;
+  }
+  
+  #searched-suggestion li {
+     list-style: none;
+     padding: 5px;
+     box-shadow: 0px 2px 5px var(--clr-black-shadow-border-li);
+  }
+  
+  #searched-suggestion ul {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #searched-suggestion ul li article {
+    margin: 0;
+    padding: 0;
+  }
+  
+/*---------------Estilos Por Clases----------------*/
+  
+  .searched-suggestion {
+    overflow: auto;
+    top: 10vh;
+    height: auto;
+    width: 280px;
+    border-top: 0px;
+    border-left: 1px solid var(--clr-light-gray-border);
+    border-right: 1px solid var(--clr-light-gray-border);
+    border-bottom: 1px solid var(--clr-light-gray-border);
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  .div-product-suggestion {
+    top: 10vh;
+    min-height: 60px;
+    max-height: 70vh;
+    height: auto;
+    width: auto;
+    border-radius: 0px 0px 10px 10px;
+    z-index: 1;
+    gap: 0;
+  }
+  
+  .searched-suggestion-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .suggested-products {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    width: 200px;
+  }
+  
+  .searched-suggestion-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    gap: 5px;
+  }
+
+  .btn-surggested-product {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left; 
+    cursor: pointer;
+  }
+  
