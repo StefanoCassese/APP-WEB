@@ -1,0 +1,5 @@
+Cambiar el id de los input, los ides son unicos
+cambiar el id de los botones 
+Los productos se copian dos veces al quitar la categoria
+:last-child {
+con esa propiedad en css le agregas un margen bottom para agregarle un poco de espacio asi ves la card entera
