@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Shop</title>
+    <script defer src="./main.js"></script>
+    <script src="carrito.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./mediaqueries.css">
+    <script src="https://kit.fontawesome.com/b31b9e8c91.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="container"></main>
+
+    <div id="carrito" class="carrito-ventana">
+       
+        <!-- Contenido del carrito -->
+    </div>
+    
+    <nav id="barra-nav">
+        <div class="logo">
+            <p>Six Shop</p>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Buscar" class="search-input">
+        </div>
+        <div class="search">
+
+            <ul class="nav-links">
+                <li><a href="#carrito" onclick="toggleCarrito()"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="#productos"><i class="fa-solid fa-boxes-stacked"></i></a></li>
+                <li><a href="#contacto"><i class="fa-solid fa-envelope"></i></a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <nav id="hamburger-nav"></nav>
+
+    <div class="hero">
+        <div class="hero__container">
+            <h1 class="hero__title">Six Shop</h1>
+        </div>
+    </div>
+
+    <h2 class="subtitle" id="productos">Productos</h2>
+
+    <div class="search-under-title">
+        <input type="text" placeholder="Buscar" class="search-input">
+    </div>
+    
+    
+    <main class="container"></main>
+
+    <h2 class="subtitle">Contacto</h2>
+
+    <section id="contacto">
+        <form>
+            <div class="formulario">
+                <label for="email">Ingrese E-Mail</label>
+                <input type="email" id="email" placeholder="E-Mail">
+                <label for="comments">Contanos</label>
+                <textarea id="comments"></textarea>
+                <button class="btn btn-color-1" type="submit">Enviar</button>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
