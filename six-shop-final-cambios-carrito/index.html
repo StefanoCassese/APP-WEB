@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Shop</title>
+    <script defer type="module" src="./js/main.js"></script>
+    <script defer type="module" src="./js/carrito.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mediaqueries.css">
+    <link rel="stylesheet" href="css/searcher.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <script defer src="https://kit.fontawesome.com/b31b9e8c91.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav id="barra-nav">
+        <div class="logo">
+            <p>Six Shop</p>
+        </div>
+        <div id="searchMaxWidth" class="search">
+            <input id="search-Max-Width-input" type="text" placeholder="Buscar" class="search-input">
+            <img></img>
+        </div>
+        <div class="search">
+
+            <ul class="nav-links">
+                <li><a id="cart" ><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span id="cart-count">0</span>
+                </li>
+                <li><a href="#productos"><i class="fa-solid fa-boxes-stacked"></i></a></li>
+                <li><a href="#contacto"><i class="fa-solid fa-envelope"></i></a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+        <nav id="hamburger-nav">
+        <div class="logo">
+            <p>Six Shop</p>
+        </div>
+        <div id="searchMediumWidth" class="search">
+            <input id="search-Medium-Width-input" type="text" placeholder="Buscar" class="search-input">
+        </div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a id="cart-hamb" >Carrito</a></li>
+                <li><a href="#productos" >Productos</a></li>
+                <li><a href="#contacto" >Contacto</a></li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero__container">
+            <h1 class="hero__title">Six Shop</h1>
+        </div>
+    </div>
+
+    <aside> 
+        <div id="cart-container" class="cart-container">
+            <h2>Carrito de Compras</h2>
+            <ul id="cart-list">
+            </ul>
+            <div id="total-container">
+                <span>Total:</span>
+                <span id="total-price">$0.00</span>
+            </div>
+            <button id="finish-btn" style="display: none;">Finalizar Compra</button>
+            <button id="remove-all-btn" style="display: none;">Eliminar Todo</button>
+        </div>
+
+        <h2 class="subtitle" id="productos">Productos</h2> 
+        
+        <div id="search-under-title" class="search-under-title">
+            <input id="search-input-under-title" type="text" placeholder="Buscar" class="search-input">
+        </div>
+
+        <section id="category-filter" class="center-elements">
+            <div class="btns-Category">
+                <button id="open-filter-menu" class="btn-filter">
+                    Filtrar por ▶
+                </button>
+            </div>
+            <div class="category-filter-container not-display-element">   
+            </div>
+        </section> 
+    </aside>
+    
+    <main class="container"></main>
+
+    <h2 class="subtitle">Contacto</h2>
+
+    <section id="contacto">
+        <form>
+            <div class="formulario">
+                <label for="email">Ingrese E-Mail</label>
+        <input type="email" id="email" placeholder="E-Mail">
+        <label for="comments">Contanos</label>
+        <textarea id="comments"></textarea>
+        <button class="btn btn-color-1" type="submit">Enviar</button>
+        </div>
+        </form>
+    </section>
+
+    <footer>
+
+        <div class="footer__text">
+
+            <div class="footer__imgs">
+
+                <div class="footer__img">
+
+                    <a target="_blank" href="https://www.instagram.com"><i
+                            class="fa-brands fa-square-instagram"></i></a>
+
+                    <a target="_blank" href="https://www.facebook.com"><i class="fa-brands fa-square-facebook"></i></a>
+
+                    <a target="_blank" href="https://www.twitter.com"><i class="fa-brands fa-square-twitter"></i></a>
+
+                    <a target="_blank" href="https://www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+
+                </div>
+
+            </div>
+            <p>All rights reserved © Six Shop</p>
+        </div>
+
+    </footer>
+</body>
+
+
+</html>
