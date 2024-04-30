@@ -676,30 +676,3 @@ footer {
     background-color: gray;
     color: white;
 }
-
-/* Prueba Media query de "Ver Detalle" para pantallas de hasta 768px de ancho */
-
-@media screen and (max-width: 768px) {
-    .producto-detalle-custom {
-        width: 95%;
-        position: fixed;
-        top: auto;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .detalle-producto__imagen-custom img {
-        display: block; 
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 50%;
-        height: auto; 
-    }
-
-    .detalle-producto__descripcion-custom {
-        max-height: 100px;
-        overflow: hidden;
-        overflow-y: auto;
-    }    
-}
