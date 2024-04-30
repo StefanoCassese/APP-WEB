@@ -677,8 +677,7 @@ footer {
     color: white;
 }
 
-
-/* Prueba Media query "Ver Detalle" para pantallas de hasta 768px de ancho */
+/* Prueba Media query de "Ver Detalle" para pantallas de hasta 768px de ancho */
 
 @media screen and (max-width: 768px) {
     .producto-detalle-custom {
