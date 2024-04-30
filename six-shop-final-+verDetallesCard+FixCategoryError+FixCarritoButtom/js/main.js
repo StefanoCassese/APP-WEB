@@ -133,7 +133,7 @@ mainCartControler()
 let tarjetaDetalleAbierta = null;
 
 export function mostrarDetallesProducto(producto) {
-    
+    // Cerrar la tarjeta de detalles actualmente abierta, si existe
     if (tarjetaDetalleAbierta) {
         document.body.removeChild(tarjetaDetalleAbierta);
         tarjetaDetalleAbierta = null;
@@ -142,26 +142,33 @@ export function mostrarDetallesProducto(producto) {
     const detalleProducto = document.createElement('div');
     detalleProducto.classList.add('producto-detalle-custom');
     
+    const descripcionCompleta = producto.description;
+    const descripcionCorta = truncarTexto(producto.description, 200);
+    let descripcionExpandida = false;
+    
     detalleProducto.innerHTML = `
         <div class="detalle-producto__imagen-custom">
             <img src="${producto.image}" alt="${producto.title}">
         </div>
         <div class="detalle-producto__info-custom">
-            <h2 class="detalle-producto__titulo-custom">${producto.title}</h2>
-            <p class="detalle-producto__descripcion-custom">${truncarTexto(producto.description, 500)}</p>
+                <h2 class="detalle-producto__titulo-custom">${producto.title}</h2>
+                <div class="detalle-producto__descripcion-container">
+                <p class="detalle-producto__descripcion-custom">${descripcionCorta}</p>
+                <p class="detalle-producto__descripcion-custom"><button class="detalle-producto__leer-mas-btn-custom btn btn-color-2 proyecto-btn">Leer más</button><p/>
+            </div>
             <p class="detalle-producto__precio-custom">$${producto.price}</p>
             <div class= "product__button">
-            <button class="detalle-producto__cerrar-btn-custom btn btn-color-2 proyecto-btn">Cerrar</button>
-            <button class="add-to-cart btn btn-color-2 proyecto-btn" data-productId="${producto.id}">Agregar al Carrito</button>
+                <button class="detalle-producto__cerrar-btn-custom btn btn-color-2 proyecto-btn">Cerrar</button>
+                <button class="add-to-cart btn btn-color-2 proyecto-btn" data-productId="${producto.id}">Agregar al Carrito</button>
             </div>
         </div>
+
     `;
     
-    document.body.appendChild(detalleProducto);    
+    document.body.appendChild(detalleProducto);
     
     const cerrarBtn = detalleProducto.querySelector('.detalle-producto__cerrar-btn-custom');
     cerrarBtn.addEventListener('click', () => {
-        
         document.body.removeChild(detalleProducto);
         tarjetaDetalleAbierta = null;
     });
@@ -171,7 +178,16 @@ export function mostrarDetallesProducto(producto) {
         const productId = addToCartBtn.getAttribute('data-productId');
         addToCart(productId);
     });
+
+    const leerMasBtn = detalleProducto.querySelector('.detalle-producto__leer-mas-btn-custom');
+    leerMasBtn.addEventListener('click', () => {
+        descripcionExpandida = !descripcionExpandida;
+        const descripcion = descripcionExpandida ? descripcionCompleta : descripcionCorta;
+        descripcionContainer.textContent = descripcion;
+        leerMasBtn.textContent = descripcionExpandida ? 'Leer menos' : 'Leer más';
+    });
     
+    const descripcionContainer = detalleProducto.querySelector('.detalle-producto__descripcion-custom');
     
     tarjetaDetalleAbierta = detalleProducto;
 }
