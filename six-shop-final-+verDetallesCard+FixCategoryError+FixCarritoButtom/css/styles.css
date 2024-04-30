@@ -615,7 +615,6 @@ footer {
 }
 
 /* -------------------- VER DETALLES ------------------- */
-
 .producto-detalle-custom {
     position: fixed;
     top: 50%;
@@ -627,7 +626,8 @@ footer {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
-    border: 2px solid black;    
+    border: 2px solid black;
+    z-index: 1000; 
 }
 
 .detalle-producto__imagen-custom img {
@@ -648,6 +648,7 @@ footer {
 
 .detalle-producto__descripcion-custom {
     margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .detalle-producto__precio-custom {
@@ -664,4 +665,42 @@ footer {
 
 .detalle-producto__cerrar-btn-custom:hover {
     background-color: var(--clr-black);
+}
+
+.detalle-producto__leer-mas-btn-custom {
+    font-weight: 300;
+    transition: all 300ms ease;
+    padding: 0.30rem;
+    width: 6rem;
+    border-radius: 2rem;
+    background-color: gray;
+    color: white;
+}
+
+
+/* Prueba Media query "Ver Detalle" para pantallas de hasta 768px de ancho */
+
+@media screen and (max-width: 768px) {
+    .producto-detalle-custom {
+        width: 95%;
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .detalle-producto__imagen-custom img {
+        display: block; 
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50%;
+        height: auto; 
+    }
+
+    .detalle-producto__descripcion-custom {
+        max-height: 100px;
+        overflow: hidden;
+        overflow-y: auto;
+    }    
 }
