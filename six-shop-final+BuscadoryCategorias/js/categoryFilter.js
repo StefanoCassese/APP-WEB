@@ -1,4 +1,5 @@
 import { writeProductHTML } from "./main.js"
+import { createBtnAddCar } from "./carrito.js"
 
 const categoryContainer = document.querySelector('.category-filter-container')
 
@@ -85,11 +86,7 @@ let categorySelectedList = []
 
 function createButtonCategorySelected(categoryName) {
 
-    console.log(categoryName)
-
-    console.log(categorySelectedList)
-
-    if(!categorySelectedList.includes(categoryName))
+    if (!categorySelectedList.includes(categoryName))
     {
         categorySelectedList.push(categoryName)
 
@@ -104,7 +101,7 @@ function createButtonCategorySelected(categoryName) {
 
         buttonRemoveFilter.addEventListener( 'click', ()=> {
             removeElement(categoryName)
-            let  newButtonsCategoryList = categorySelectedList.filter( button => button !== categoryName)
+            let newButtonsCategoryList = categorySelectedList.filter( button => button !== categoryName)
             categorySelectedList = newButtonsCategoryList
             filterForCategorySelected()
         })
@@ -112,19 +109,25 @@ function createButtonCategorySelected(categoryName) {
 
 }
 
-function filterForCategorySelected() {
+async function filterForCategorySelected() {
     const mainContent = document.querySelector("main");
     if (categorySelectedList.length > 0) {
         let productsListFiltered = globalProductsList.filter(product => {
             return categorySelectedList.includes(product.category)
         });
         mainContent.innerHTML = "";
-        writeProductHTML(productsListFiltered);
+        await writeProductHTML(productsListFiltered);
+        createBtnAddCar()
     } else {
         mainContent.innerHTML = "";
         writeProductHTML(globalProductsList);
+        createBtnAddCar()
     }
 }
+
+
+
+
 
 
 
