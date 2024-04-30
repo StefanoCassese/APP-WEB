@@ -6,15 +6,8 @@ export function mainCartControler() {
         const cartContainer = document.querySelector("#cart-container");
         cartContainer.style.display = cartContainer.style.display == "none" ? "block" : "none";
     })
-
-    const $btnAddToCart = document.querySelectorAll('.add-to-cart')
-
-    $btnAddToCart.forEach( btn => {
-        btn.addEventListener( 'click', ()=> {
-            const id = btn.getAttribute('data-productId')
-            addToCart(id)
-        })
-    })
+    
+    createBtnAddCar()
 
     document.addEventListener('click', (event) => {
         const itemId = event.target.getAttribute('data-productId');
@@ -38,6 +31,18 @@ export function mainCartControler() {
             removeAllFromCart()
         }
     });
+
+}
+
+export function createBtnAddCar() {
+    const $btnAddToCart = document.querySelectorAll('.add-to-cart')
+
+    $btnAddToCart.forEach( btn => {
+        btn.addEventListener( 'click', ()=> {
+            const id = btn.getAttribute('data-productId')
+            addToCart(id)
+        })
+    })
 
 }
 
