@@ -118,12 +118,10 @@ async function filterForCategorySelected() {
         mainContent.innerHTML = "";
         await writeProductHTML(productsListFiltered);
         createBtnAddCar()
-        addEventBtnSeeDetails()
     } else {
         mainContent.innerHTML = "";
         await writeProductHTML(globalProductsList);
         createBtnAddCar()
-        addEventBtnSeeDetails()
     }
 }
 
