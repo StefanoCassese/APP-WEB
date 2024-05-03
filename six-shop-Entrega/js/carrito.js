@@ -21,8 +21,6 @@ export function mainCartControler() {
         })
     })
 
-    createBtnAddCar()
-
     document.addEventListener('click', (event) => {
         const itemId = event.target.getAttribute('data-productId');
         if (event.target.classList.contains('remove_from_cart')) {
