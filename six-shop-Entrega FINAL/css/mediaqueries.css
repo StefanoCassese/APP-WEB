@@ -225,16 +225,16 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     article {
         width: calc(100% - 40px);
     }
 
-    /* Carrito de compras */
     .cart-container {
         width: 100%;
         top: 70px;
-        right: 0;
+        right: 15px; 
+        left: 15px; 
         padding: 15px;
     }
 
@@ -249,11 +249,6 @@
 
     #total-container {
         font-size: 16px;
-    }
-
-    #cart-icon {
-        top: 15px;
-        right: 15px;
     }
 }
 
