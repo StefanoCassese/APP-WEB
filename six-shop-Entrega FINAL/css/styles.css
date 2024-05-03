@@ -60,6 +60,7 @@ nav {
     gap: 5rem;
     list-style: none;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .search-input {
