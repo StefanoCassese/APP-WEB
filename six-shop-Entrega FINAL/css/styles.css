@@ -243,6 +243,7 @@ a {
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
+    cursor: pointer;
 }
 
 .btn-color-2{
