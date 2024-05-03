@@ -63,7 +63,7 @@ export function writeProductHTML(data) {
             `
             <article id="${articulos.id}" class="product">
                 <div class="product__img">
-                    <img src="${articulos.image}">
+                    <img src="${articulos.image}" alt="${articulos.title}">
                 </div>
                 <div class="product__text">
                     <p class="product__text__title">${articulos.title}</p>
