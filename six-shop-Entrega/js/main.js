@@ -1,6 +1,6 @@
 import { searchLogic } from "./searcher.js";
 import { createCategoryFilter } from "./categoryFilter.js";
-import { mainCartControler, createBtnAddCar } from "./carrito.js";
+import { mainCartControler } from "./carrito.js";
 
 function getProducts(done) {
     const results = fetch('https://fakestoreapi.com/products');
@@ -159,12 +159,11 @@ export function mostrarDetallesProducto(producto) {
             <p class="detalle-producto__precio-custom">$${producto.price}</p>
             <div class= "product__button">
                 <button class="detalle-producto__cerrar-btn-custom btn btn-color-2 proyecto-btn">Cerrar</button>
-                <button class="add-to-cart btn btn-color-2 proyecto-btn" data-productId="${producto.id}">Agregar al Carrito</button>
             </div>
         </div>
 
     `;
-    
+
     document.body.appendChild(detalleProducto);
     
     const cerrarBtn = detalleProducto.querySelector('.detalle-producto__cerrar-btn-custom');
@@ -172,8 +171,6 @@ export function mostrarDetallesProducto(producto) {
         document.body.removeChild(detalleProducto);
         tarjetaDetalleAbierta = null;
     });
-
-    createBtnAddCar()
 
     const leerMasBtn = detalleProducto.querySelector('.detalle-producto__leer-mas-btn-custom');
     leerMasBtn.addEventListener('click', () => {
