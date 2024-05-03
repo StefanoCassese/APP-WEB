@@ -1,6 +1,6 @@
 import { searchLogic } from "./searcher.js";
 import { createCategoryFilter } from "./categoryFilter.js";
-import { mainCartControler, addToCart } from "./carrito.js";
+import { mainCartControler, createBtnAddCar } from "./carrito.js";
 
 function getProducts(done) {
     const results = fetch('https://fakestoreapi.com/products');
@@ -173,11 +173,7 @@ export function mostrarDetallesProducto(producto) {
         tarjetaDetalleAbierta = null;
     });
 
-    const addToCartBtn = detalleProducto.querySelector('.add-to-cart');
-    addToCartBtn.addEventListener('click', () => {
-        const productId = addToCartBtn.getAttribute('data-productId');
-        addToCart(productId);
-    });
+    createBtnAddCar()
 
     const leerMasBtn = detalleProducto.querySelector('.detalle-producto__leer-mas-btn-custom');
     leerMasBtn.addEventListener('click', () => {
